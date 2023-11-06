@@ -22,6 +22,16 @@ int main() {
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
+			//if it's a triangle, print out the angles
+			break;
+		case 2:
+			printf_s("Rectangle selected.\n");
+			int rectanglePoints[RECT_COORD_WIDTH][RECT_COORD_COUNT] = {0};
+			bool gotPoints = getFourPoints(rectanglePoints);
+			if (!gotPoints) {
+				printf_s("Invalid value entered.\n");
+				return 1;
+			}
 			break;
 		case 0:
 			continueProgram = false;
@@ -44,6 +54,7 @@ void printWelcome() {
 
 int printShapeMenu() {
 	printf_s("1. Triangle\n");
+	printf_s("2. Rectangle\n");
 	printf_s("0. Exit\n");
 
 	int shapeChoice;
@@ -61,4 +72,9 @@ int* getTriangleSides(int* triangleSides) {
 		scanf_s("%d", &triangleSides[i]);
 	}
 	return triangleSides;
+}
+
+bool getFourPoints(int rectanglePoints[RECT_COORD_WIDTH][RECT_COORD_COUNT]) {
+	printf_s("Enter the four points of a rectangle: ");
+	return true;
 }
