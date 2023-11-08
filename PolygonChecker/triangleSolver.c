@@ -12,7 +12,8 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 		result = EQUILATERAL_TRIANGLE;
 	}
 	else if ((side1 == side2 && side1 != side3) || 
-		(side1 == side3 && side1 != side2))
+		(side1 == side3 && side1 != side2) ||
+		(side2 == side3 && side1 != side2))
 	{
 		result = ISOSCELES_TRIANGLE;
 	}
