@@ -5,7 +5,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-const double Rad2Deg = 180 / M_PI;
+const double RAD2DEG = 180 / M_PI;
 
 bool GetTriAngles(int side1, int side2, int side3, double *out) {
 	if (out == 0) {
@@ -17,13 +17,17 @@ bool GetTriAngles(int side1, int side2, int side3, double *out) {
 		return false;
 	}
 
-	double side1d = (double)side1;
-	double side2d = (double)side2;
-	double side3d = (double)side3;
+	double side1d = (double) side1;
+	double side2d = (double) side2;
+	double side3d = (double) side3;
 
-	out[0] = Rad2Deg * acos(((side2d * side2d) + (side3d * side3d) - (side1d * side1d)) / (2 * side2d * side3d));
-	out[1] = Rad2Deg * acos(((side1d * side1d) + (side3d * side3d) - (side2d * side2d)) / (2 * side2d * side3d));
-	out[2] = Rad2Deg * acos(((side1d * side1d) + (side2d * side2d) - (side3d * side3d)) / (2 * side2d * side3d));
+	double area = sqrt((side1d + side2d + side3d) * (-side1d + side2d + side3d) * (side1d - side2d + side3d) * (side1d + side2d - side3d)) / 4;
+
+	printf_s("Area: %lf \n", area);
+
+	out[0] = RAD2DEG * asin((2 * area) / (side1d * side2d));
+	out[1] = RAD2DEG * asin((2 * area) / (side2d * side3d));
+	out[2] = RAD2DEG * asin((2*area) / (side3d*side1d));
 
 	return true;
 }
