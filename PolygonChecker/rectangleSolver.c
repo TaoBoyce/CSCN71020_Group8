@@ -245,6 +245,27 @@ RECTANGLECORNERS rectangleMaker(COORDINATEPOINT point1, COORDINATEPOINT point2, 
 		outputRectangle.bottomLeft = bottomHalf[0];
 	}
 
-
+	return outputRectangle;
 	
 };
+
+
+float rectanglePerimeter(RECTANGLECORNERS rectangle) {
+	float leftSide = rectangle.topLeft.y - rectangle.bottomLeft.y;
+	float topSide = rectangle.topRight.x - rectangle.topLeft.x;
+	float rightSide = rectangle.topRight.y - rectangle.bottomRight.y;
+	float bottomSide = rectangle.bottomRight.x - rectangle.bottomLeft.x;
+
+	float perimeter = leftSide + topSide + rightSide + bottomSide;
+
+	return perimeter;
+}
+
+float rectangleArea(RECTANGLECORNERS rectangle) {
+	float height = rectangle.topLeft.y - rectangle.bottomLeft.y;
+	float width = rectangle.topRight.x - rectangle.topLeft.x;
+
+	float area = height * width;
+
+	return area;
+}
