@@ -6,6 +6,7 @@
 #include "main.h"
 #include "triangleSolver.h"
 #include "anglechecker.h"
+#include "rectangleSolver.h"
 
 int side = 0;
 
