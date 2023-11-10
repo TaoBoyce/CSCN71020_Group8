@@ -20,3 +20,5 @@ typedef struct RectangleCorners {
 RECTANGLECORNERS rectangleMaker(COORDINATEPOINT, COORDINATEPOINT, COORDINATEPOINT, COORDINATEPOINT);
 
 float rectanglePerimeter(RECTANGLECORNERS);
+
+float rectangleArea(RECTANGLECORNERS);

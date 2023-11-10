@@ -265,7 +265,7 @@ float rectangleArea(RECTANGLECORNERS rectangle) {
 	float height = rectangle.topLeft.y - rectangle.bottomLeft.y;
 	float width = rectangle.topRight.x - rectangle.topLeft.x;
 
-	float area = hight * width;
+	float area = height * width;
 
 	return area;
 }
