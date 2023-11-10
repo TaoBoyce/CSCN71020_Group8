@@ -5,6 +5,7 @@
 
 #include "main.h"
 #include "triangleSolver.h"
+#include "anglechecker.h"
 
 int side = 0;
 
@@ -26,6 +27,13 @@ int main() {
 			printf_s("%s\n", result);
 			if (result != NOT_TRIANGLE) {
 				//print angles
+				double triangleangles[3];
+				if (!GetTriAngles(triangleSides[0], triangleSides[1], triangleSides[2], triangleangles)) {
+					fprintf_s(stderr, "Couldn't determine angles.");
+				}
+				else {
+					printf_s("%lf degrees, %lf degrees, %lf degrees", triangleangles[0], triangleangles[1], triangleangles[2]);
+				}
 			}
 			break;
 		case 2:
