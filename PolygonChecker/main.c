@@ -60,12 +60,15 @@ int main() {
 			coord4.x = rectanglePoints[0][3];
 			coord4.y = rectanglePoints[1][3];
 			RECTANGLECORNERS rectResult = rectangleMaker(coord1, coord2, coord3, coord4);
-			//if(result = RECTANGLE){
+			if(rectangleChecker(rectResult)){
 				float rectArea = rectangleArea(rectResult);
 				printf_s("The area is %f\n", rectArea);
 				float rectPerimeter = rectanglePerimeter(rectResult);
 				printf_s("The perimeter is %f\n", rectPerimeter);
-			//}
+			}
+			else {
+				printf_s("Input is not a rectangle.\n");
+			}
 			break;
 		case 0:
 			continueProgram = false;
