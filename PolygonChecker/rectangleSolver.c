@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "rectangleSolver.h"
-
+#include "anglechecker.h"
 #define HALFPOINTS 2
+#define SQUAREANGLE 90
 
 
 RECTANGLECORNERS rectangleMaker(COORDINATEPOINT point1, COORDINATEPOINT point2, COORDINATEPOINT point3, COORDINATEPOINT point4) {
@@ -268,4 +269,19 @@ float rectangleArea(RECTANGLECORNERS rectangle) {
 	float area = height * width;
 
 	return area;
+}
+
+bool rectangleChecker(RECTANGLECORNERS rectangle) {
+	
+	//check all 4 angles to make sure they're square
+	if (angleFromThreePoints(rectangle.topLeft, rectangle.topRight, rectangle.bottomLeft) == SQUAREANGLE &&
+		angleFromThreePoints(rectangle.topRight, rectangle.topLeft, rectangle.bottomRight) == SQUAREANGLE &&
+		angleFromThreePoints(rectangle.bottomRight, rectangle.topRight, rectangle.bottomLeft) == SQUAREANGLE &&
+		angleFromThreePoints(rectangle.bottomLeft, rectangle.bottomRight, rectangle.topLeft) == SQUAREANGLE) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
 }

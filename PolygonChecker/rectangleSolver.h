@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <stdbool.h>
 
 
 
@@ -22,3 +22,5 @@ RECTANGLECORNERS rectangleMaker(COORDINATEPOINT, COORDINATEPOINT, COORDINATEPOIN
 float rectanglePerimeter(RECTANGLECORNERS);
 
 float rectangleArea(RECTANGLECORNERS);
+
+bool rectangleChecker(RECTANGLECORNERS);

@@ -27,3 +27,21 @@ bool GetTriAngles(int side1, int side2, int side3, double *out) {
 
 	return true;
 }
+
+double angleFromThreePoints(COORDINATEPOINT point1, COORDINATEPOINT point2, COORDINATEPOINT point3) {
+	
+	//getting the angle of the vertex at point 1
+
+	double side12 = sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2));
+	double side13 = sqrt(pow(point1.x - point3.x, 2) + pow(point1.y - point3.y, 2));
+	double side23 = sqrt(pow(point2.x - point3.x, 2) + pow(point2.y - point3.y, 2));
+
+
+	double angleRadians = acos((pow(side12, 2) + pow(side13, 2) - pow(side23, 2)) / (2 * side12 * side13));
+
+	//converting radians to degrees
+	
+	double angleDegree = angleRadians * Rad2Deg;
+
+	return angleDegree;
+}
