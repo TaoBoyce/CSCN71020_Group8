@@ -30,10 +30,10 @@ int main() {
 				//print angles
 				double triangleangles[3];
 				if (!GetTriAngles(triangleSides[0], triangleSides[1], triangleSides[2], triangleangles)) {
-					fprintf_s(stderr, "Couldn't determine angles.");
+					fprintf_s(stderr, "Couldn't determine angles.\n");
 				}
 				else {
-					printf_s("%lf degrees, %lf degrees, %lf degrees", triangleangles[0], triangleangles[1], triangleangles[2]);
+					printf_s("%lf degrees, %lf degrees, %lf degrees\n", triangleangles[0], triangleangles[1], triangleangles[2]);
 				}
 			}
 			break;
@@ -48,17 +48,17 @@ int main() {
 				break;
 			}
 			COORDINATEPOINT coord1 = { 0 };
-			coord1.x = rectanglePoints[0][0];
-			coord1.y = rectanglePoints[1][0];
+			coord1.x = rectanglePoints[ARR_X][0];
+			coord1.y = rectanglePoints[ARR_Y][0];
 			COORDINATEPOINT coord2 = { 0 };
-			coord2.x = rectanglePoints[0][1];
-			coord2.y = rectanglePoints[1][1];
+			coord2.x = rectanglePoints[ARR_X][1];
+			coord2.y = rectanglePoints[ARR_Y][1];
 			COORDINATEPOINT coord3 = { 0 };
-			coord3.x = rectanglePoints[0][2];
-			coord3.y = rectanglePoints[1][2];
+			coord3.x = rectanglePoints[ARR_X][2];
+			coord3.y = rectanglePoints[ARR_Y][2];
 			COORDINATEPOINT coord4 = { 0 };
-			coord4.x = rectanglePoints[0][3];
-			coord4.y = rectanglePoints[1][3];
+			coord4.x = rectanglePoints[ARR_X][3];
+			coord4.y = rectanglePoints[ARR_Y][3];
 			RECTANGLECORNERS rectResult = rectangleMaker(coord1, coord2, coord3, coord4);
 			if(rectangleChecker(rectResult)){
 				float rectArea = rectangleArea(rectResult);
