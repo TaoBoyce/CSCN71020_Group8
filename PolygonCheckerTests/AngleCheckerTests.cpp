@@ -18,7 +18,7 @@ namespace AngleCheckerTests
 
 			bool valid = GetTriAngles(22, 18, 13, out);
 
-			Assert::IsTrue(round(out[0]) == 36 && round(out[1]) == 89 && round(out[2]) == 55 && valid);
+			Assert::IsTrue(round(out[0]) == 36 && round(out[1]) == 55 && round(out[2]) == 89 && valid);
 		}
 		TEST_METHOD(GetTriAngles2) {
 			// Tests Obtuse Triangle
@@ -26,12 +26,7 @@ namespace AngleCheckerTests
 
 			bool valid = GetTriAngles(20, 4, 17, out);
 
-			// For Debug
-			char str[100];
-			sprintf_s(str, "%lf, %lf, %lf", out[0], out[1], out[2]);
-			Logger::WriteMessage(str);
-
-			Assert::IsTrue(round(out[0]) == 34 && round(out[1]) == 34 && round(out[2]) == 16 && valid);
+			Assert::IsTrue(round(out[0]) == 37 && round(out[1]) == 8 && round(out[2]) == 134 && valid);
 		}
 		TEST_METHOD(GetTriAngles3) {
 			// Tests Right Triangle
@@ -49,7 +44,7 @@ namespace AngleCheckerTests
 			bool valid = GetTriAngles(5, 12, 13, out);
 
 			// Truncates to account for negligble floating point precision errors
-			Assert::IsTrue(round(out[0]) == 90 && round(out[1]) == 23 && round(out[2]) == 67 && valid);
+			Assert::IsTrue(round(out[0]) == 90 && round(out[1]) == 67 && round(out[2]) == 23 && valid);
 		}
 
 		TEST_METHOD(GetTriAngles5) {
