@@ -100,6 +100,38 @@ namespace AnalyzeTriangleTests
 			Assert::AreEqual(expected, actual);
 		}
 
+		TEST_METHOD(AnalyzeTriangle4_3A)
+		{
+			//functionality: not triangle
+			char* expected = "Not a triangle";
+			char* actual = analyzeTriangle(-1, -5, 3);
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(AnalyzeTriangle4_3B)
+		{
+			//functionality: not triangle
+			char* expected = "Not a triangle";
+			char* actual = analyzeTriangle(-5, 1, -3);
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(AnalyzeTriangle4_3C)
+		{
+			//functionality: not triangle
+			char* expected = "Not a triangle";
+			char* actual = analyzeTriangle(5, -3, -1);
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(AnalyzeTriangle4_4A)
+		{
+			//functionality: not triangle
+			char* expected = "Not a triangle";
+			char* actual = analyzeTriangle(-5, -3, -1);
+			Assert::AreEqual(expected, actual);
+		}
+
 
 	};
 }
