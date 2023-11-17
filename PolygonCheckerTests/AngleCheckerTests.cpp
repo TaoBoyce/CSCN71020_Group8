@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include <cstdio>
 #include <cmath>
 
 extern "C" {
