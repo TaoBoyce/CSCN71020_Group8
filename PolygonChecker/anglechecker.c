@@ -27,6 +27,10 @@ bool GetTriAngles(int side1, int side2, int side3, double *out) {
 	out[1] = RAD2DEG * asin((2 * area) / (side2d * side3d));
 	out[2] = RAD2DEG * asin((2*area) / (side3d*side1d));
 
+	if (out[0] != out[0]) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -43,7 +47,7 @@ double angleFromThreePoints(COORDINATEPOINT point1, COORDINATEPOINT point2, COOR
 
 	//converting radians to degrees
 	
-	double angleDegree = angleRadians * Rad2Deg;
+	double angleDegree = angleRadians * RAD2DEG;
 
 	return angleDegree;
 }
