@@ -47,8 +47,11 @@ double angleFromThreePoints(COORDINATEPOINT point1, COORDINATEPOINT point2, COOR
 	double angleRadians = acos((pow(side12, 2) + pow(side13, 2) - pow(side23, 2)) / (2 * side12 * side13));
 
 	//converting radians to degrees
-	
 	double angleDegree = angleRadians * RAD2DEG;
 
 	return angleDegree;
+}
+
+bool compareD(double a, double b) {
+	return fabs(a - b) < 0.001;
 }

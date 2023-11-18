@@ -3,7 +3,6 @@
 #include "anglechecker.h"
 
 #define HALFPOINTS 2
-#define SQUAREANGLE 90
 
 
 RECTANGLECORNERS rectangleMaker(COORDINATEPOINT point1, COORDINATEPOINT point2, COORDINATEPOINT point3, COORDINATEPOINT point4) {
@@ -320,10 +319,10 @@ float rectangleArea(RECTANGLECORNERS rectangle) {
 bool rectangleChecker(RECTANGLECORNERS rectangle) {
 
 	//check all 4 angles to make sure they're square
-	if (angleFromThreePoints(rectangle.topLeft, rectangle.topRight, rectangle.bottomLeft) == SQUAREANGLE &&
-		angleFromThreePoints(rectangle.topRight, rectangle.topLeft, rectangle.bottomRight) == SQUAREANGLE &&
-		angleFromThreePoints(rectangle.bottomRight, rectangle.topRight, rectangle.bottomLeft) == SQUAREANGLE &&
-		angleFromThreePoints(rectangle.bottomLeft, rectangle.bottomRight, rectangle.topLeft) == SQUAREANGLE) {
+	if (compareD(angleFromThreePoints(rectangle.topLeft, rectangle.topRight, rectangle.bottomLeft), 90.0) &&
+		compareD(angleFromThreePoints(rectangle.topRight, rectangle.topLeft, rectangle.bottomRight), 90.0) &&
+		compareD(angleFromThreePoints(rectangle.bottomRight, rectangle.topRight, rectangle.bottomLeft), 90.0) &&
+		compareD(angleFromThreePoints(rectangle.bottomLeft, rectangle.bottomRight, rectangle.topLeft), 90.0)) {
 		return true;
 	}
 	else {

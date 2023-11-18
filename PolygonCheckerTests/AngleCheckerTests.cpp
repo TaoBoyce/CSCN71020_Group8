@@ -77,4 +77,50 @@ namespace AngleCheckerTests
 			Assert::IsFalse(GetTriAngles(3, 3, 3, NULL));
 		}
 	};
+
+	TEST_CLASS(THREEPOINTANGLE_TESTS) {
+		TEST_METHOD(acuteAngle) {
+			//testing if it will calculate an acute angle accurately
+			COORDINATEPOINT point1 = coordinatePointMaker(2, 2);
+			COORDINATEPOINT point2 = coordinatePointMaker(6, 6);
+			COORDINATEPOINT point3 = coordinatePointMaker(6, 2);
+
+			double actual = angleFromThreePoints(point1, point2, point3);
+
+			Assert::AreEqual(actual, 45.0, 0.01);
+		}
+
+		TEST_METHOD(obtuseAngle) {
+			//testing if it will calculate an obtuse angle accurately
+			COORDINATEPOINT point1 = coordinatePointMaker(2, 2);
+			COORDINATEPOINT point2 = coordinatePointMaker(-2, 6);
+			COORDINATEPOINT point3 = coordinatePointMaker(6, 2);
+
+			double actual = angleFromThreePoints(point1, point2, point3);
+
+			Assert::AreEqual(actual, 135.0, 0.01);
+		}
+
+		TEST_METHOD(rightAngle) {
+			//testing if it will calculate an right angle accurately
+			COORDINATEPOINT point1 = coordinatePointMaker(2, 2);
+			COORDINATEPOINT point2 = coordinatePointMaker(2, 6);
+			COORDINATEPOINT point3 = coordinatePointMaker(6, 2);
+
+			double actual = angleFromThreePoints(point1, point2, point3);
+
+			Assert::AreEqual(actual, 90.0, 0.01);
+		}
+
+		TEST_METHOD(parallelAngle) {
+			//testing if it will calculate an flat line angle accurately
+			COORDINATEPOINT point1 = coordinatePointMaker(2, 2);
+			COORDINATEPOINT point2 = coordinatePointMaker(-2, 2);
+			COORDINATEPOINT point3 = coordinatePointMaker(6, 2);
+
+			double actual = angleFromThreePoints(point1, point2, point3);
+
+			Assert::AreEqual(actual, 180.0, 0.01);
+		}
+	};
 }
