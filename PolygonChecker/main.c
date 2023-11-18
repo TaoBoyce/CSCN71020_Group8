@@ -121,7 +121,7 @@ bool getFourPoints(int rectanglePoints[RECT_COORD_WIDTH][RECT_COORD_COUNT]) {
 
 			do {
 				if (row % RECT_COORD_WIDTH == 0) {
-					printf_s("Point %d:\nX: ", row + 1 - row / 2);
+					printf_s("Point %d:\nX: ", col + 1 - row / 2);
 				}
 				else {
 					printf_s("Y: ");
