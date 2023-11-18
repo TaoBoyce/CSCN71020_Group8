@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #define RECT_COORD_WIDTH	2
 #define RECT_COORD_COUNT	4
+#define ARR_X				0
+#define ARR_Y				1
 #define BUFF_SIZE			256
 
 void printWelcome();

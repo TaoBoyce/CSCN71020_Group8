@@ -21,7 +21,7 @@
     <ClCompile Include="AnalyzeTriangleTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rectangleTests.cpp">
+    <ClCompile Include="AngleCheckerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

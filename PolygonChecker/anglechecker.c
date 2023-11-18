@@ -24,8 +24,13 @@ bool GetTriAngles(int side1, int side2, int side3, double *out) {
 	double area = sqrt((side1d + side2d + side3d) * (-side1d + side2d + side3d) * (side1d - side2d + side3d) * (side1d + side2d - side3d)) / 4;
 
 	out[0] = RAD2DEG * asin((2 * area) / (side1d * side2d));
-	out[1] = RAD2DEG * asin((2 * area) / (side2d * side3d));
-	out[2] = RAD2DEG * asin((2*area) / (side3d*side1d));
+	out[1] = RAD2DEG * asin((2 * area) / (side3d * side1d));
+
+	out[2] = 180.0 - (out[0] + out[1]);
+
+	if (out[0] != out[0]) {
+		return false;
+	}
 
 	return true;
 }
