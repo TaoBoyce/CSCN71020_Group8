@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "rectangleSolver.h"
 #include "anglechecker.h"
+
 #define HALFPOINTS 2
 #define SQUAREANGLE 90
 
@@ -228,27 +229,72 @@ RECTANGLECORNERS rectangleMaker(COORDINATEPOINT point1, COORDINATEPOINT point2, 
 	}
 
 	//divide the top and bottom between left and right
-	if (topHalf[0].x >= topHalf[1].x) {
+	if (topHalf[0].x > topHalf[1].x) {
 		outputRectangle.topRight = topHalf[0];
 		outputRectangle.topLeft = topHalf[1];
 	}
-	else {
+	else if (topHalf[0].x < topHalf[1].x) {
 		outputRectangle.topRight = topHalf[1];
 		outputRectangle.topLeft = topHalf[0];
 	}
 
-	if (bottomHalf[0].x >= bottomHalf[1].x) {
+	else {
+		if (topHalf[0].y > topHalf[1].y) {
+			if (bottomHalf[0].x > topHalf[0].x || bottomHalf[1].x > topHalf[0].x) {
+				outputRectangle.topRight = topHalf[0];
+				outputRectangle.topLeft = topHalf[1];
+			}
+			else if (bottomHalf[0].x <= topHalf[0].x || bottomHalf[1].x <= topHalf[0].x) {
+				outputRectangle.topLeft = topHalf[0];
+				outputRectangle.topRight = topHalf[1];
+			}
+		}
+		else {
+			if (bottomHalf[0].x > topHalf[1].x || bottomHalf[1].x > topHalf[1].x) {
+				outputRectangle.topRight = topHalf[1];
+				outputRectangle.topLeft = topHalf[0];
+			}
+			else if (bottomHalf[0].x <= topHalf[1].x || bottomHalf[1].x <= topHalf[1].x) {
+				outputRectangle.topLeft = topHalf[1];
+				outputRectangle.topRight = topHalf[0];
+			}
+		}
+	}
+
+	if (bottomHalf[0].x > bottomHalf[1].x) {
 		outputRectangle.bottomRight = bottomHalf[0];
 		outputRectangle.bottomLeft = bottomHalf[1];
 	}
-	else {
+	else if (bottomHalf[0].x < bottomHalf[1].x) {
 		outputRectangle.bottomRight = bottomHalf[1];
 		outputRectangle.bottomLeft = bottomHalf[0];
 	}
 
+	else {
+		if (bottomHalf[0].y < bottomHalf[1].y) {
+			if (topHalf[0].x > bottomHalf[0].x || topHalf[1].x > bottomHalf[0].x) {
+				outputRectangle.bottomRight = bottomHalf[0];
+				outputRectangle.bottomLeft = bottomHalf[1];
+			}
+			else if (topHalf[0].x <= bottomHalf[0].x || topHalf[1].x <= bottomHalf[0].x) {
+				outputRectangle.bottomLeft = bottomHalf[0];
+				outputRectangle.bottomRight = bottomHalf[1];
+			}
+		}
+		else {
+			if (topHalf[0].x > bottomHalf[1].x || topHalf[1].x > bottomHalf[1].x) {
+				outputRectangle.bottomRight = bottomHalf[1];
+				outputRectangle.bottomLeft = bottomHalf[0];
+			}
+			else if (topHalf[0].x <= bottomHalf[1].x || topHalf[1].x <= bottomHalf[1].x) {
+				outputRectangle.bottomLeft = bottomHalf[1];
+				outputRectangle.bottomRight = bottomHalf[0];
+			}
+		}
+	}
 	return outputRectangle;
 	
-};
+}
 
 
 float rectanglePerimeter(RECTANGLECORNERS rectangle) {
@@ -272,7 +318,7 @@ float rectangleArea(RECTANGLECORNERS rectangle) {
 }
 
 bool rectangleChecker(RECTANGLECORNERS rectangle) {
-	
+
 	//check all 4 angles to make sure they're square
 	if (angleFromThreePoints(rectangle.topLeft, rectangle.topRight, rectangle.bottomLeft) == SQUAREANGLE &&
 		angleFromThreePoints(rectangle.topRight, rectangle.topLeft, rectangle.bottomRight) == SQUAREANGLE &&
@@ -284,4 +330,12 @@ bool rectangleChecker(RECTANGLECORNERS rectangle) {
 		return false;
 	}
 
+}
+
+COORDINATEPOINT coordinatePointMaker(float x, float y) {
+	COORDINATEPOINT newPoint;
+	newPoint.x = x;
+	newPoint.y = y;
+
+	return newPoint;
 }

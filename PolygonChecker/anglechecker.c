@@ -43,7 +43,7 @@ double angleFromThreePoints(COORDINATEPOINT point1, COORDINATEPOINT point2, COOR
 
 	//converting radians to degrees
 	
-	double angleDegree = angleRadians * Rad2Deg;
+	double angleDegree = angleRadians * RAD2DEG;
 
 	return angleDegree;
 }

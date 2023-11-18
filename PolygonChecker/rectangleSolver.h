@@ -3,8 +3,6 @@
 #include <stdbool.h>
 
 
-
-
 typedef struct CoordinatePoint {
 	float x;
 	float y;
@@ -24,3 +22,5 @@ float rectanglePerimeter(RECTANGLECORNERS);
 float rectangleArea(RECTANGLECORNERS);
 
 bool rectangleChecker(RECTANGLECORNERS);
+
+COORDINATEPOINT coordinatePointMaker(float, float);
