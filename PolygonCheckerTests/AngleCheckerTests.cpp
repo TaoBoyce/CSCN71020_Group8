@@ -28,7 +28,7 @@ namespace AngleCheckerTests
 			Assert::IsTrue(round(out[0]) == 37 && round(out[1]) == 8 && round(out[2]) == 134 && valid);
 		}
 		TEST_METHOD(GetTriAngles3) {
-			// Tests Right Triangle
+			// Tests equilateral Triangle
 			double out[3];
 
 			bool valid = GetTriAngles(5, 5, 5, out);
@@ -37,7 +37,7 @@ namespace AngleCheckerTests
 		}
 
 		TEST_METHOD(GetTriAngles4) {
-			// Test if angles are correct
+			// Test if angles are correct on a right triangle
 			double out[3];
 
 			bool valid = GetTriAngles(5, 12, 13, out);
